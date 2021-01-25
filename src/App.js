@@ -1,15 +1,15 @@
-import { useQuery, gql } from '@apollo/client';
+import { useQuery, gql } from "@apollo/client";
 
 const GET_PRODUCTOS = gql`
-{
-  productos {
-    id,
-    costo_compra_no_iva,
-    costo_venta_no_iva,
-    cantidad_disponible,
-    fecha_expiracion
+  {
+    productos {
+      id
+      costo_compra_no_iva
+      costo_venta_no_iva
+      cantidad_disponible
+      fecha_expiracion
+    }
   }
-}
 `;
 
 function App() {
@@ -35,35 +35,40 @@ function App() {
                 </tr>
               </thead>
               <tbody>
-                {data.productos.map(({
-                  id,
-                  costo_compra_no_iva,
-                  costo_venta_no_iva,
-                  cantidad_disponible,
-                  fecha_expiracion
-                }) => (
-                  <tr key={id}>
-                    <td>
-                      {id}
-                    </td>
-                    <td>
-                      {costo_compra_no_iva}
-                    </td>
-                    <td>
-                      {costo_venta_no_iva}
-                    </td>
-                    <td>
-                      {cantidad_disponible}
-                    </td>
-                    <td>
-                      {fecha_expiracion}
-                    </td>
-                    <td>
-                      <button onClick="" data-id={id} type="button" class="btn btn-outline-secondary"><i class="fas fa-pencil-alt"></i></button>
-                      <button data-id={id} type="button" class="btn btn-outline-secondary"><i class="fas fa-trash"></i></button>
-                    </td>
-                  </tr>
-                ))}
+                {data.productos.map(
+                  ({
+                    id,
+                    costo_compra_no_iva,
+                    costo_venta_no_iva,
+                    cantidad_disponible,
+                    fecha_expiracion
+                  }) => (
+                    <tr key={id}>
+                      <td>{id}</td>
+                      <td>{costo_compra_no_iva}</td>
+                      <td>{costo_venta_no_iva}</td>
+                      <td>{cantidad_disponible}</td>
+                      <td>{fecha_expiracion}</td>
+                      <td>
+                        <button
+                          onClick=""
+                          data-id={id}
+                          type="button"
+                          class="btn btn-outline-secondary"
+                        >
+                          <i class="fas fa-pencil-alt"></i>
+                        </button>
+                        <button
+                          data-id={id}
+                          type="button"
+                          class="btn btn-outline-secondary"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  )
+                )}
               </tbody>
             </table>
           </div>
