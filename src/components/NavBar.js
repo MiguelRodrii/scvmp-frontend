@@ -32,7 +32,7 @@ function NavBar({ siteName, sites }) {
               <ul className="menu">
                 {sites.map((site) => {
                   return (
-                    <li>
+                    <li key={site}>
                       <Link to={site}>{site}</Link>
                     </li>
                   );
