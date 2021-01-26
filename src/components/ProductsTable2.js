@@ -1,7 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import axios from "axios";
+import { Button } from "primereact/button";
 
 const GET_PRODUCTOS = gql`
   {
@@ -18,16 +18,31 @@ const GET_PRODUCTOS = gql`
 const ProductsTable2 = () => {
   const { loading, error, data } = useQuery(GET_PRODUCTOS);
 
+  const editButton = () => {
+    return (
+      <>
+        <Button
+          type="button"
+          icon="pi pi-cog"
+          className="p-button-secondary"
+        ></Button>
+      </>
+    );
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
   return (
-    <DataTable value={data.productos}>
-      <Column field="id" header="Id"></Column>
-      <Column field="costo_compra_no_iva" header="C. Compra sin iva"></Column>
-      <Column field="cantidad_disponible" header="C. disponible"></Column>
-      <Column field="fecha_expiracion" header="F. Expiracion"></Column>
-    </DataTable>
+    <>
+      <DataTable value={data.productos}>
+        <Column field="id" header="Id"></Column>
+        <Column field="costo_compra_no_iva" header="C. Compra sin iva"></Column>
+        <Column field="cantidad_disponible" header="C. disponible"></Column>
+        <Column field="fecha_expiracion" header="F. Expiracion"></Column>
+        <Column body={editButton}></Column>
+      </DataTable>
+    </>
   );
 };
 

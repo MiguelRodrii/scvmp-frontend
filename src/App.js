@@ -1,4 +1,13 @@
+//Router
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+//General CSS used imports
+import "primereact/resources/themes/saga-blue/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
+import "primeflex/primeflex.css";
+
+// Components
 import ProductsTable from "./components/ProductsTable2";
 import Error from "./components/Error";
 
