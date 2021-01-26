@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ProductsTable from "./components/ProductsTable";
+import ProductsTable from "./components/ProductsTable2";
 import Error from "./components/Error";
 
 const App = () => {

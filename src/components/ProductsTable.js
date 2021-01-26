@@ -1,4 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
+import { DataTable } from "primereact/datatable";
+import axios from "axios";
 
 const GET_PRODUCTOS = gql`
   {
