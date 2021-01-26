@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 // Components and web pages
 import ReadProductos from "./pages/ReadProductos";
 import Error from "./pages/Error";
+import ModifyProduct from "./pages/ModifyProduct";
 
 const App = () => {
   return (
@@ -13,6 +14,11 @@ const App = () => {
         <Route exact path="/">
           <ReadProductos />
         </Route>
+
+        <Route
+          path="/modifyProduct/:productId"
+          children={<ModifyProduct />}
+        ></Route>
 
         {/*Y este comentario*/}
         <Route path="*">
