@@ -1,9 +1,20 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import "../assests/css/Main.css";
 import logo from "../assests/images/book.png";
 
-function NavBar({ siteName }) {
+NavBar.defaultProps = {
+  siteName: "Bienvenido",
+  sites: ["index"]
+};
+
+NavBar.propTypes = {
+  site: PropTypes.string,
+  sites: PropTypes.arrayOf(PropTypes.string)
+};
+
+function NavBar({ siteName, sites }) {
   return (
     <>
       <header>
@@ -12,19 +23,20 @@ function NavBar({ siteName }) {
             <Link to="/">
               <img className="grow" src={logo} alt="logo"></img>
             </Link>
-            <hi>
+            <h1>
               <strong>{siteName}</strong>
-            </hi>
+            </h1>
           </div>
           <div>
             <nav>
               <ul className="menu">
-                <li>
-                  <Link to="/">Registrar productos</Link>
-                </li>
-                <li>
-                  <Link to="/">Registrar productos</Link>
-                </li>
+                {sites.map((site) => {
+                  return (
+                    <li>
+                      <Link to={site}>{site}</Link>
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
           </div>
