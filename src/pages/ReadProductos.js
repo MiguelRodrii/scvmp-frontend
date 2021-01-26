@@ -1,5 +1,5 @@
-import NavBar from "./NavBar";
-import ProductsTable2 from "./ProductsTable2";
+import NavBar from "../components/NavBar";
+import ProductsTable2 from "../components/ProductsTable2";
 
 const ReadProductos = () => {
   return (
