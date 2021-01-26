@@ -3,12 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //General CSS used imports
 import "primereact/resources/themes/saga-blue/theme.css";
-import "primereact/resources/primereact.min.css";
-import "primeicons/primeicons.css";
+import "primereact/resources/primereact.css";
 import "primeflex/primeflex.css";
 
 // Components
-import ProductsTable from "./components/ProductsTable2";
+import ReadProductos from "./components/ReadProductos";
 import Error from "./components/Error";
 
 const App = () => {
@@ -19,7 +18,7 @@ const App = () => {
           {/*Inserte sus rutas entre este comentario*/}
 
           <Route exact path="/">
-            <ProductsTable />
+            <ReadProductos />
           </Route>
 
           {/*Y este comentario*/}

@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Button } from "primereact/button";
+import { BsPencil } from "react-icons/bs";
 
 const GET_PRODUCTOS = gql`
   {
@@ -21,11 +22,9 @@ const ProductsTable2 = () => {
   const editButton = () => {
     return (
       <>
-        <Button
-          type="button"
-          icon="pi pi-cog"
-          className="p-button-secondary"
-        ></Button>
+        <Button type="button" className="p-button-secondary">
+          <BsPencil />
+        </Button>
       </>
     );
   };

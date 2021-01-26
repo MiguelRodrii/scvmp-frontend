@@ -10,7 +10,7 @@ NavBar.defaultProps = {
 };
 
 NavBar.propTypes = {
-  site: PropTypes.string,
+  siteName: PropTypes.string,
   sites: PropTypes.arrayOf(PropTypes.string)
 };
 
