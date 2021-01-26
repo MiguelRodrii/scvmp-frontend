@@ -33,7 +33,7 @@ function NavBar({ siteName, sites }) {
                 {sites.map((site) => {
                   return (
                     <li key={site}>
-                      <Link to={site}>{site}</Link>
+                      <Link to={`/${site}`}>{site}</Link>
                     </li>
                   );
                 })}

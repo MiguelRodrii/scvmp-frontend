@@ -4,7 +4,7 @@ import Table from "react-bootstrap/Table";
 //Components
 import ModifyProductButton from "./ModifyProductButton";
 
-const GET_PRODUCTOS = gql`
+const GET_PRODUCTOS = gql(`
   {
     productos {
       id
@@ -14,7 +14,7 @@ const GET_PRODUCTOS = gql`
       fecha_expiracion
     }
   }
-`;
+`);
 
 const ProductsTable = () => {
   const { loading, error, data } = useQuery(GET_PRODUCTOS);
