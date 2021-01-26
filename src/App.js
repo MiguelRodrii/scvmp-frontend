@@ -1,4 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
+import NavBar from "./NavBar";
 
 const GET_PRODUCTOS = gql`
   {
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <>
+      <NavBar siteName="Index" />
       <div>
         <div class="table">
           <div class="table-contenido">
