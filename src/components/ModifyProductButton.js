@@ -1,11 +1,11 @@
 import { BsPencil } from "react-icons/bs";
-import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
-const ModifyProductButton = ({ idProducto }) => {
+const ModifyProductButton = ({ productId }) => {
   return (
     <>
-      <Link to={`/modifyProduct/${idProducto}`}>
+      <Link to={`/modifyProduct/${productId}`}>
         <Button variant="outline-secondary">
           <BsPencil />
         </Button>

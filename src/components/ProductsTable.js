@@ -50,7 +50,7 @@ const ProductsTable = () => {
                 <td>{costo_venta_no_iva}</td>
                 <td>{cantidad_disponible}</td>
                 <td>{fecha_expiracion}</td>
-                <td>{<ModifyProductButton idProducto={id} />}</td>
+                <td>{<ModifyProductButton productId={id} />}</td>
               </tr>
             )
           )}

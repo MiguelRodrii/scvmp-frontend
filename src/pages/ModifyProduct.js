@@ -1,7 +1,13 @@
+import { useParams } from "react-router-dom";
+
 const ModifyProduct = () => {
+  const productId = useParams();
+
+  console.log(productId);
+
   return (
     <>
-      <h1>Se ha accesado a la pagina de modificación</h1>
+      <h1>Smntin</h1>
     </>
   );
 };
