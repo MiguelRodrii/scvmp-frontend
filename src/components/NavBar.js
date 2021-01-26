@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import "../../public/assests/css/main.css";
-import logo from "../../public/assests/images/book.png";
+import "../assests/css/Main.css";
+import logo from "../assests/images/book.png";
 
-export const NavBar = ({ siteName }) => {
+function NavBar({ siteName }) {
   return (
     <>
       <header>
@@ -32,4 +32,6 @@ export const NavBar = ({ siteName }) => {
       </header>
     </>
   );
-};
+}
+
+export default NavBar;
