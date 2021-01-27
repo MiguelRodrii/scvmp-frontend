@@ -4,7 +4,7 @@ import ProductsTable from "../components/ProductsTable";
 const ReadProductos = () => {
   return (
     <>
-      <NavBar siteName="Revisión de productos" sites={["A", "B"]} />
+      <NavBar siteName="Revisión" sites={["Ventas", "Actualización"]} />
       <ProductsTable />
     </>
   );
