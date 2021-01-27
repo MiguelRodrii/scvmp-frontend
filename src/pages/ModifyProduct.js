@@ -6,6 +6,10 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
+const isLetter = (str) => {
+  return str.length === 1 && str.match(/[a-z]/i);
+};
+
 const ModifyProduct = () => {
   const productId = parseInt(useParams().productId, 10);
 
@@ -23,16 +27,6 @@ const ModifyProduct = () => {
 
   const { loading, error, data } = useQuery(GET_PRODUCTO);
 
-  console.log(data.productos[0].costo_compra_no_iva);
-
-  const [costoCompraNoIva, setCostoCompraNoIva] = useState(
-    data.productos[0].costo_compra_no_iva
-  );
-
-  const isLetter = (str) => {
-    return str.length === 1 && str.match(/[a-z]/i);
-  };
-
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
@@ -47,8 +41,6 @@ const ModifyProduct = () => {
       stringDateWithBackSlash += stringDate.charAt(index);
     }
   }
-
-  console.log(stringDateWithBackSlash);
 
   return (
     <>
@@ -67,7 +59,6 @@ const ModifyProduct = () => {
               step="0.01"
               min="0.01"
               max="1000"
-              defaultValue={costoCompraNoIva}
             />
           </Form.Group>
           <Form.Group controlId={`formUPCV${productId}`}>
