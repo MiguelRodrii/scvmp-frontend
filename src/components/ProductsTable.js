@@ -1,5 +1,5 @@
-import { useQuery, gql, useMutation } from "@apollo/client";
-import React, {useEffect} from "react";
+import { useQuery, gql } from "@apollo/client";
+import React, {useState} from "react";
 import Table from "react-bootstrap/Table";
 import Card from "react-bootstrap/Card";
 
@@ -22,7 +22,7 @@ const GET_PRODUCTOS = gql(`
 
 const ProductsTable = () => {
 
-  const { loading, error, data } = useQuery(GET_PRODUCTOS);
+  const { loading, error, data, refetch } = useQuery(GET_PRODUCTOS);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
@@ -56,7 +56,7 @@ const ProductsTable = () => {
                   <td>{cantidad_disponible}</td>
                   <td>{fecha_expiracion}</td>
                   <td>{<ModifyProductButton productId={id} />}</td>
-                  <td >{<DeleteProductButton productId={id} />}</td>
+                  <td >{<DeleteProductButton productId={id} update={refetch} />}</td>
                 </tr>
               )
             )}
