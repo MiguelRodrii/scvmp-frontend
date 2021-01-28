@@ -30,13 +30,13 @@ const ModifyProduct = () => {
   `);
 
   const UPDATE_PRODUCTO = gql(`
-  mutation {
+  mutation UpdateProducto($ccompra: Float!, $cventa: Float!, $cdisponible: Int!, $fexpiracion: Date!) {
     updateProducto (producto: {
       id: ${productId}, 
-      costo_compra_no_iva: $ccompra,
+      costo_compra_no_iva: $ccompra
       costo_venta_no_iva: $cventa,
       cantidad_disponible: $cdisponible,
-      fecha_expiracion: "$fexpiracion"
+      fecha_expiracion: $fexpiracion
     }) 
     {
       id
@@ -77,7 +77,27 @@ const ModifyProduct = () => {
       <Card body>
         <Form onSubmit={(e) => {
           e.preventDefault();
-          addTodo({ variables: { ccompra:e.target.costoCompra.value, cventa:e.target.costoVenta.value, cdisponible:e.target.cantidadDisponible.value, fexpiracion:e.target.costoCompra.fechaExpiracion} });
+          addTodo({
+            variables: {
+              ccompra: parseFloat(e.target.costoCompra.value),
+              cventa: parseFloat(e.target.costoVenta.value),
+              cdisponible: parseInt(e.target.cantidadDisponible.value),
+              fexpiracion: new Date(e.target.fechaExpiracion.value)
+            }
+          });
+          store.addNotification({
+            title: "Modificación exitosa",
+            message: `El producto ${productId}, ha sido modificado de forma exitosa.`,
+            type: "success",
+            insert: "top",
+            container: "top-right",
+            animationIn: ["animate__animated", "animate__fadeIn"],
+            animationOut: ["animate__animated", "animate__fadeOut"],
+            dismiss: {
+              duration: 5000,
+              onScreen: true
+            }
+          });
         }}>
           <Form.Group controlId={`formUPCC${productId}`}>
             <Form.Label>Costo de compra (sin iva)</Form.Label>
