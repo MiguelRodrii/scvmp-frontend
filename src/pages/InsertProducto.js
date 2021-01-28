@@ -22,7 +22,7 @@ const InsertProducto = () => {
   }
 `);
 
-  const [addTodo, { data }] = useMutation(PUSH_PRODUCTO);
+  const [addTodo] = useMutation(PUSH_PRODUCTO);
 
 
   return (
@@ -43,10 +43,9 @@ const InsertProducto = () => {
               fexpiracion: new Date(e.target.fechaExpiracion.value)
             }
           });
-          const idCP = data.createProducto.id;
           store.addNotification({
             title: "Modificación exitosa",
-            message: `El producto ${idCP} ha sido registrado de forma exitosa.`,
+            message: `El producto ha sido registrado de forma exitosa.`,
             type: "success",
             insert: "top",
             container: "top-right",

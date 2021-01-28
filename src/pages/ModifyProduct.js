@@ -43,7 +43,7 @@ const ModifyProduct = () => {
     }
   }
 `);
-  const [addTodo, { data2 }] = useMutation(UPDATE_PRODUCTO);
+  const [addTodo] = useMutation(UPDATE_PRODUCTO);
 
   const { loading, error, data } = useQuery(GET_PRODUCTO);
 
