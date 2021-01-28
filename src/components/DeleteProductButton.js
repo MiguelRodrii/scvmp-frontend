@@ -13,10 +13,13 @@ const DeleteProductButton = ({productId, update}) => {
 
 
   const [deleteProducto] = useMutation(DELETE_PRODUCTO_MUT);
+    
   return (
     <>
        <Link to={`/`}>
-        <Button variant="outline-secondary" onClick={() => {deleteProducto(); update();}} >
+        <Button variant="outline-secondary" onClick={() => {if(window.confirm("Esta seguro que desa eliminar?")){
+          {deleteProducto()}
+        }}} >
           <AiOutlineRest />
         </Button>
         </Link>
