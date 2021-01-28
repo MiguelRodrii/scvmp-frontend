@@ -1,4 +1,5 @@
-import { Link, Redirect } from "react-router-dom";
+import { Link} from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 import PropTypes from "prop-types";
 
 import "../assests/css/Main.css";
@@ -35,7 +36,13 @@ function NavBar({ siteName, sites }) {
                   console.log(trueSite);
                   return (
                     <li key={trueSite}>
-                      <Link to={`/${trueSite}`}>{site}</Link>
+                      <Link to={{
+                        pathname: `/${trueSite}`,
+                        key: uuidv4(),
+                        state: {
+                          applied: true
+                        }
+                      }}>{site}</Link>
                     </li>
                   );
                 })}
