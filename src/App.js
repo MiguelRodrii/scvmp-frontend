@@ -19,10 +19,7 @@ const App = () => {
           <ReadProductos />
         </Route>
 
-        <Route
-          path="/modifyProduct/:productId"
-          children={<ModifyProduct />}
-        ></Route>
+        <Route path="/modifyProduct/:productId" children={<ModifyProduct />} />
 
         {/*Y este comentario*/}
         <Route path="*">
