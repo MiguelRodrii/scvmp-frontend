@@ -23,17 +23,19 @@ function NavBar({ siteName, sites }) {
             <Link to="/">
               <img className="grow" src={logo} alt="logo"></img>
             </Link>
-            <h1>
+            <h2>
               <strong>{siteName}</strong>
-            </h1>
+            </h2>
           </div>
           <div>
             <nav>
               <ul className="menu">
                 {sites.map((site) => {
+                  const trueSite = site.toLowerCase().replace(/\s/g, '-');;
+                  console.log(trueSite);
                   return (
-                    <li key={site}>
-                      <Link to={`/${site}`}>{site}</Link>
+                    <li key={trueSite}>
+                      <Link to={`/${trueSite}`}>{site}</Link>
                     </li>
                   );
                 })}

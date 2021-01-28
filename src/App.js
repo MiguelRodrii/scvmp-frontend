@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import ReadProductos from "./pages/ReadProductos";
 import Error from "./pages/Error";
 import ModifyProduct from "./pages/ModifyProduct";
+import InsertProducto from "./pages/InsertProducto";
 
 const App = () => {
   return (
@@ -20,6 +21,9 @@ const App = () => {
         </Route>
 
         <Route path="/modifyProduct/:productId" children={<ModifyProduct />} />
+        <Route path="/registrar-producto">
+          <InsertProducto></InsertProducto>
+        </Route>
 
         {/*Y este comentario*/}
         <Route path="*">

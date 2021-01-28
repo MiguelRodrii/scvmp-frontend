@@ -72,7 +72,7 @@ const ModifyProduct = () => {
       <ReactNotification />
       <NavBar
         siteName={`Actualización del producto ${productId}`}
-        sites={["Home"]}
+        sites={["Home", "Registrar producto"]}
       />
       <Card body>
         <Form onSubmit={(e) => {
