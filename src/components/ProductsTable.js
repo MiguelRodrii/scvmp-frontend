@@ -36,7 +36,7 @@ const ProductsTable = () => {
               <th>Costo compra sin iva</th>
               <th>Costo venta sin iva</th>
               <th>Cantidad disponible</th>
-              <th>Fecha expiracion</th>
+              <th>Fecha expiración</th>
               <th></th>
             </tr>
           </thead>
