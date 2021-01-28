@@ -15,6 +15,9 @@ import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.css";
 import "primeflex/primeflex.css";
 
+//React Notification
+import 'react-notifications-component/dist/theme.css'
+
 // Apollo client instance
 const client = new ApolloClient({
   uri: "http://localhost:4000/",
