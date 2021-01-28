@@ -1,25 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { ApolloProvider } from '@apollo/client';
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+// Main depedencies
+import React from "react";
+import ReactDOM from "react-dom";
+import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import { BrowserRouter as Router } from "react-router-dom";
 
-//JS
-import App from './App';
+// App import
+import App from "./App";
 
+// Importing the Bootstrap CSS
+import "bootstrap/dist/css/bootstrap.min.css";
+
+//Prime React CSS
+import "primereact/resources/themes/saga-blue/theme.css";
+import "primereact/resources/primereact.css";
+import "primeflex/primeflex.css";
+
+//React Notification
+import 'react-notifications-component/dist/theme.css'
+
+// Apollo client instance
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: "http://localhost:4000/",
   cache: new InMemoryCache()
 });
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ApolloProvider client={client}>
-    <App />
-    </ApolloProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+  <ApolloProvider client={client}>
+    <Router>
+      <App />
+    </Router>
+  </ApolloProvider>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
