@@ -14,7 +14,7 @@ const DeleteProductButton = ({productId}) => {
   const [deleteProducto] = useMutation(DELETE_PRODUCTO_MUT);
   return (
     <>
-       <Link to={`/index`}>
+       <Link to={`/`}>
         <Button onClick={()=>deleteProducto()} >
           <AiOutlineRest />
         </Button>
