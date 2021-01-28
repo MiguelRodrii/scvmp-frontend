@@ -1,5 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
-import React, {useState} from "react";
+import React  from "react";
 import Table from "react-bootstrap/Table";
 import Card from "react-bootstrap/Card";
 
