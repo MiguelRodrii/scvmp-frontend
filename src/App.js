@@ -17,7 +17,7 @@ const App = () => {
         </Route>
 
         <Route exact path="/home">
-          <ReadProductos />
+            <ReadProductos />
         </Route>
 
         <Route path="/modifyProduct/:productId" children={<ModifyProduct />} />
