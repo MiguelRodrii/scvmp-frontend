@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import { gql, useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
+//Product
 
 const DeleteProductButton = ({productId, update}) => {
   const DELETE_PRODUCTO_MUT = gql(`
