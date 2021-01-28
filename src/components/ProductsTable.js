@@ -1,8 +1,10 @@
-import { useQuery, gql } from "@apollo/client";
+import { useQuery, gql, useMutation } from "@apollo/client";
 import Table from "react-bootstrap/Table";
+
 
 //Components
 import ModifyProductButton from "./ModifyProductButton";
+import DeleteProductButton from "./DeleteProductButton";
 
 const GET_PRODUCTOS = gql(`
   {
@@ -16,9 +18,9 @@ const GET_PRODUCTOS = gql(`
   }
 `);
 
+
 const ProductsTable = () => {
   const { loading, error, data } = useQuery(GET_PRODUCTOS);
-
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
@@ -51,6 +53,7 @@ const ProductsTable = () => {
                 <td>{cantidad_disponible}</td>
                 <td>{fecha_expiracion}</td>
                 <td>{<ModifyProductButton productId={id} />}</td>
+                <td >{<DeleteProductButton productId={id} />}</td>
               </tr>
             )
           )}
