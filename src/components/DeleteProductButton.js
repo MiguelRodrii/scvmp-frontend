@@ -15,7 +15,7 @@ const DeleteProductButton = ({productId}) => {
   return (
     <>
        <Link to={`/`}>
-        <Button onClick={()=>deleteProducto()} >
+        <Button variant="outline-secondary" onClick={() => {deleteProducto(); window.location.reload(false);}} >
           <AiOutlineRest />
         </Button>
         </Link>
