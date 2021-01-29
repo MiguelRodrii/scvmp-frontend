@@ -3,3 +3,6 @@ const Error = () => {
 };
 
 export default Error;
+
+
+hola
