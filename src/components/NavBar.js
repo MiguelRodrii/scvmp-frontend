@@ -1,5 +1,4 @@
-import { Link} from "react-router-dom";
-import { v4 as uuidv4 } from 'uuid';
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import "../assests/css/Main.css";
@@ -32,17 +31,10 @@ function NavBar({ siteName, sites }) {
             <nav>
               <ul className="menu">
                 {sites.map((site) => {
-                  const trueSite = site.toLowerCase().replace(/\s/g, '-');;
-                  console.log(trueSite);
+                  const trueSite = site.toLowerCase().replace(/\s/g, '-');
                   return (
                     <li key={trueSite}>
-                      <Link to={{
-                        pathname: `/${trueSite}`,
-                        key: uuidv4(),
-                        state: {
-                          applied: true
-                        }
-                      }}>{site}</Link>
+                      <Link to={`/${trueSite}`} >{site}</Link>
                     </li>
                   );
                 })}

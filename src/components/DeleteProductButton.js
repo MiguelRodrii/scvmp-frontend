@@ -17,9 +17,11 @@ const DeleteProductButton = ({productId, update}) => {
   return (
     <>
        <Link to={`/`}>
-        <Button variant="outline-secondary" onClick={() => {if(window.confirm("Esta seguro que desa eliminar?")){
-          {deleteProducto()}
-        }}} >
+        <Button variant="outline-secondary" onClick={() => {
+          if(window.confirm("Esta seguro que desa eliminar?")){
+            deleteProducto();
+            update();
+        }}}>
           <AiOutlineRest />
         </Button>
         </Link>
