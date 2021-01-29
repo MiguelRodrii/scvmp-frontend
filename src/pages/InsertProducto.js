@@ -30,7 +30,6 @@ const InsertProducto = () => {
       <ReactNotification />
       <NavBar
         siteName={`Registro de productos`}
-        siteName={`Registro Ventas`}
         sites={["Home"]}
       />
       <Card body>
