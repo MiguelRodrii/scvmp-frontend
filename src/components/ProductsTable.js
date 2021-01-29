@@ -21,8 +21,9 @@ const GET_PRODUCTOS = gql(`
 
 
 const ProductsTable = () => {
-
-  const { loading, error, data, refetch } = useQuery(GET_PRODUCTOS);
+  const { loading, error, data, refetch } = useQuery(GET_PRODUCTOS, {
+    fetchPolicy: "no-cache"
+  });
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
