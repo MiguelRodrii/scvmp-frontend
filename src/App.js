@@ -6,6 +6,8 @@ import ReadProductos from "./pages/ReadProductos";
 import Error from "./pages/Error";
 import ModifyProduct from "./pages/ModifyProduct";
 import InsertProducto from "./pages/InsertProducto";
+import SearchClient from "./pages/SearchClient";
+
 
 const App = () => {
   return (
@@ -18,6 +20,10 @@ const App = () => {
 
         <Route exact path="/home">
             <ReadProductos />
+        </Route>
+
+        <Route exact path="/buscar-cliente">
+            <SearchClient />
         </Route>
 
         <Route path="/modifyProduct/:productId" children={<ModifyProduct />} />
