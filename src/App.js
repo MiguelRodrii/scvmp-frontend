@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 
 // Components and web pages
 import ReadProductos from "./pages/ReadProductos";
+import CreateVentas from "./pages/CreateVentas";
 import Error from "./pages/Error";
 import ModifyProduct from "./pages/ModifyProduct";
 import InsertProducto from "./pages/InsertProducto";
@@ -24,6 +25,9 @@ const App = () => {
 
         <Route exact path="/buscar-cliente">
             <SearchClient />
+        </Route>
+        <Route exact path="/registrar-venta">
+            <CreateVentas />
         </Route>
 
         <Route path="/modifyProduct/:productId" children={<ModifyProduct />} />
