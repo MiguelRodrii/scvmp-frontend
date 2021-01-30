@@ -17,16 +17,16 @@ const App = () => {
           <ReadProductos />
         </Route>
 
-        <Route exact path="/home">
+        <Route path="/home">
             <ReadProductos />
         </Route>
 
-        <Route exact path="/registrar-venta">
+        <Route path="/registrar-venta">
             <CreateVentas />
         </Route>
-
-
+        
         <Route path="/modifyProduct/:productId" children={<ModifyProduct />} />
+
         <Route path="/registrar-producto">
           <InsertProducto></InsertProducto>
         </Route>

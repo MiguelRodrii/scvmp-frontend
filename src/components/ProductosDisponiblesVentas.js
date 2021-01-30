@@ -1,27 +1,10 @@
-import { useQuery, gql } from "@apollo/client";
-import React  from "react";
 import Table from "react-bootstrap/Table";
 import Card from "react-bootstrap/Card";
+import AddPreSoldProductButton from "./AddPreSoldProductButton";
+import React, {useState} from "react";
 
-
-const GET_PRODUCTOS = gql(`
-  {
-    productos {
-      id
-      costo_compra_no_iva
-      costo_venta_no_iva
-      cantidad_disponible
-      fecha_expiracion
-    }
-  }
-`);
-
-
-const ProductosDisponiblesVentas = () => {
-
-  const { loading, error, data} = useQuery(GET_PRODUCTOS);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+const ProductosDisponiblesVentas = ({ productos, dispatch }) => {
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <>
@@ -30,28 +13,32 @@ const ProductosDisponiblesVentas = () => {
           <thead>
             <tr>
               <th>Id</th>
+              <th>Nombre</th>
               <th>Costo compra sin iva</th>
               <th>Costo venta sin iva</th>
               <th>Cantidad disponible</th>
               <th>Fecha expiración</th>
-              <th></th>
+              <th><input onChange={(e) => {setQuantity(e.target.value)}} type="number" min="1" max="1000" step="1" required defaultValue={quantity}></input></th>
             </tr>
           </thead>
           <tbody>
-            {data.productos.map(
+            {productos.disponibles.map(
               ({
                 id,
                 costo_compra_no_iva,
                 costo_venta_no_iva,
                 cantidad_disponible,
-                fecha_expiracion
+                fecha_expiracion,
+                descripcion
               }) => (
                 <tr key={id}>
                   <td>{id}</td>
+                  <td>{descripcion.nombre}</td>
                   <td>{costo_compra_no_iva}</td>
                   <td>{costo_venta_no_iva}</td>
                   <td>{cantidad_disponible}</td>
                   <td>{fecha_expiracion}</td>
+                  <td><AddPreSoldProductButton id={id} dispatch={dispatch} cantidad={quantity}/></td>
                 </tr>
               )
             )}
